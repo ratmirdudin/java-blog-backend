@@ -38,7 +38,7 @@ public class AuthController {
     private String activeProfile;
 
     @PostMapping("/signin")
-    public ResponseEntity<Object> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
+    public ResponseEntity<Response> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
 
         String jwt = authService.authenticateUser(loginRequest);
 
@@ -54,7 +54,7 @@ public class AuthController {
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<Object> registerUser(@Valid @RequestBody SignUpRequest signUpRequest) {
+    public ResponseEntity<Response> registerUser(@Valid @RequestBody SignUpRequest signUpRequest) {
 
         User user = authService.createUser(signUpRequest);
 

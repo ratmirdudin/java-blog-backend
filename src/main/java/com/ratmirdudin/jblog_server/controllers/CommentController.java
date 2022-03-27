@@ -30,7 +30,7 @@ public class CommentController {
     private final CommentFacade commentFacade;
 
     @PostMapping("/{postId}")
-    public ResponseEntity<?> createCommentForPost(@PathVariable Long postId,
+    public ResponseEntity<Response> createCommentForPost(@PathVariable Long postId,
                                                   @Valid @RequestBody CommentRequest commentRequest,
                                                   @CurrentUser UserPrincipal currentUser) {
 
@@ -51,7 +51,7 @@ public class CommentController {
     }
 
     @DeleteMapping("/{commentId}")
-    public ResponseEntity<?> deleteCommentById(@PathVariable Long commentId,
+    public ResponseEntity<Response> deleteCommentById(@PathVariable Long commentId,
                                                @CurrentUser UserPrincipal currentUser) {
 
         commentService.deleteCommentByiD(commentId, currentUser);

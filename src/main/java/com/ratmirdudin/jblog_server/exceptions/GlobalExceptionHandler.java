@@ -21,7 +21,7 @@ import static org.springframework.http.HttpStatus.UNAUTHORIZED;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler({Exception.class, LockedException.class})
-    public ResponseEntity<Object> handleException(Exception ex) {
+    public ResponseEntity<Response> handleException(Exception ex) {
 
         HttpStatus status = HttpStatus.INTERNAL_SERVER_ERROR;
 
@@ -56,7 +56,7 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex) {
+    protected ResponseEntity<Response> handleMethodArgumentNotValid(MethodArgumentNotValidException ex) {
 
         HttpStatus status = HttpStatus.BAD_REQUEST;
 
@@ -73,7 +73,7 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(BadRequestException.class)
-    public ResponseEntity<Object> handleBadRequestException(BadRequestException ex) {
+    public ResponseEntity<Response> handleBadRequestException(BadRequestException ex) {
 
         HttpStatus status = HttpStatus.BAD_REQUEST;
 
@@ -89,7 +89,7 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(HttpMessageNotReadableException.class)
-    public ResponseEntity<Object> handleException(HttpMessageNotReadableException ex) {
+    public ResponseEntity<Response> handleException(HttpMessageNotReadableException ex) {
 
         HttpStatus status = HttpStatus.BAD_REQUEST;
 
@@ -106,7 +106,7 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<Object> handleUserNotFoundException(ResourceNotFoundException ex) {
+    public ResponseEntity<Response> handleUserNotFoundException(ResourceNotFoundException ex) {
 
         HttpStatus status = HttpStatus.NOT_FOUND;
 

@@ -30,7 +30,7 @@ public class PostController {
 
 
     @GetMapping
-    public ResponseEntity<?> getAllPosts(@RequestParam(value = "page", defaultValue = "1") int page,
+    public ResponseEntity<Response> getAllPosts(@RequestParam(value = "page", defaultValue = "1") int page,
                                          @RequestParam(value = "limit", defaultValue = "50") int limit,
                                          @RequestParam(value = "category", defaultValue = "all") String category,
                                          @RequestParam(value = "search", defaultValue = "") String search) {
@@ -60,7 +60,7 @@ public class PostController {
     }
 
     @GetMapping("/{postId}")
-    public ResponseEntity<?> getDetailPostById(@PathVariable Long postId) {
+    public ResponseEntity<Response> getDetailPostById(@PathVariable Long postId) {
 
         Post post = postService.getDetailPostById(postId);
 

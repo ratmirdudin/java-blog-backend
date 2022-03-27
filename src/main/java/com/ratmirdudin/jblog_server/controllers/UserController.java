@@ -31,7 +31,7 @@ public class UserController {
     private final UserFacade userFacade;
 
     @GetMapping
-    public ResponseEntity<?> getAllUsers(@RequestParam(value = "page", defaultValue = "1") int page,
+    public ResponseEntity<Response> getAllUsers(@RequestParam(value = "page", defaultValue = "1") int page,
                                          @RequestParam(value = "limit", defaultValue = "50") int limit,
                                          @RequestParam(value = "search", defaultValue = "") String search) {
 
@@ -61,7 +61,7 @@ public class UserController {
     }
 
     @PutMapping
-    public ResponseEntity<?> updateUserInfo(@RequestBody UpdateUserRequest updateUserRequest,
+    public ResponseEntity<Response> updateUserInfo(@RequestBody UpdateUserRequest updateUserRequest,
                                             @CurrentUser UserPrincipal currentUser) {
 
         userService.updateUserById(updateUserRequest, currentUser);
@@ -77,7 +77,7 @@ public class UserController {
     }
 
     @GetMapping("/me")
-    public ResponseEntity<?> getCurrentUser(@CurrentUser UserPrincipal currentUser) {
+    public ResponseEntity<Response> getCurrentUser(@CurrentUser UserPrincipal currentUser) {
 
         User user = userService.getUserById(currentUser.getId());
 
@@ -95,7 +95,7 @@ public class UserController {
     }
 
     @GetMapping("/{userId}")
-    public ResponseEntity<?> getUserById(@PathVariable Long userId) {
+    public ResponseEntity<Response> getUserById(@PathVariable Long userId) {
 
         User user = userService.getUserById(userId);
 

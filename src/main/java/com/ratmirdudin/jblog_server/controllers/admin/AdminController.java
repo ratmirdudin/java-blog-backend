@@ -103,7 +103,7 @@ public class AdminController {
     }
 
     @GetMapping(USERS_URL + "/unban/{userId}")
-    public ResponseEntity<?> unbanUserById(@PathVariable Long userId) {
+    public ResponseEntity<Response> unbanUserById(@PathVariable Long userId) {
 
         adminService.unbanUserById(userId);
 
@@ -118,7 +118,7 @@ public class AdminController {
     }
 
     @DeleteMapping(COMMENTS_URL + "/{commentId}")
-    public ResponseEntity<?> deleteCommentById(@PathVariable Long commentId) {
+    public ResponseEntity<Response> deleteCommentById(@PathVariable Long commentId) {
 
         adminService.deleteCommentById(commentId);
 
