@@ -1,4 +1,4 @@
-package com.ratmirdudin.jblog_server.data;
+package com.ratmirdudin.jblog_server;
 
 import com.ratmirdudin.jblog_server.models.entities.*;
 import com.ratmirdudin.jblog_server.models.enums.CategoryEnum;
