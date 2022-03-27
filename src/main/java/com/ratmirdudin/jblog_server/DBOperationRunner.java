@@ -29,7 +29,6 @@ public class DBOperationRunner implements CommandLineRunner {
     private final PostRepository postRepository;
     private final CommentRepository commentRepository;
 
-
     @Override
     @Transactional
     public void run(String... args) {
