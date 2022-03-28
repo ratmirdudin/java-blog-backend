@@ -8,9 +8,7 @@ import java.util.Map;
 public class CommentRest {
     private Long id;
     private String message;
-    private Map<String, Object> User;
+    private Map<String, Object> user;
     private String createdDate;
     private String updatedDate;
-//    private Long userId;
-//    private String username;
 }
