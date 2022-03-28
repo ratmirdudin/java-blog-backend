@@ -15,7 +15,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import static java.time.LocalDateTime.now;
-import static org.springframework.http.HttpStatus.UNAUTHORIZED;
+import static org.springframework.http.HttpStatus.*;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -23,8 +23,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler({Exception.class, LockedException.class})
     public ResponseEntity<Response> handleException(Exception ex) {
 
-        HttpStatus status = HttpStatus.INTERNAL_SERVER_ERROR;
-
+        HttpStatus status = INTERNAL_SERVER_ERROR;
         return ResponseEntity.status(status)
                 .body(Response.builder()
                         .timeStamp(now())
@@ -41,7 +40,6 @@ public class GlobalExceptionHandler {
     public ResponseEntity<Response> handleAuthenticationException(AuthenticationException ex) {
 
         HttpStatus status = UNAUTHORIZED;
-
         return ResponseEntity.status(status)
                 .body(Response.builder()
                         .timeStamp(now())
@@ -58,8 +56,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     protected ResponseEntity<Response> handleMethodArgumentNotValid(MethodArgumentNotValidException ex) {
 
-        HttpStatus status = HttpStatus.BAD_REQUEST;
-
+        HttpStatus status = BAD_REQUEST;
         return ResponseEntity.status(status)
                 .body(Response.builder()
                         .timeStamp(now())
@@ -67,7 +64,6 @@ public class GlobalExceptionHandler {
                         .status(status)
                         .statusCode(status.value())
                         .message("Validation error")
-                        .developerMessage(ex.getMessage())
                         .build()
                 );
     }
@@ -75,8 +71,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(BadRequestException.class)
     public ResponseEntity<Response> handleBadRequestException(BadRequestException ex) {
 
-        HttpStatus status = HttpStatus.BAD_REQUEST;
-
+        HttpStatus status = BAD_REQUEST;
         return ResponseEntity.status(status)
                 .body(Response.builder()
                         .timeStamp(now())
@@ -91,8 +86,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public ResponseEntity<Response> handleException(HttpMessageNotReadableException ex) {
 
-        HttpStatus status = HttpStatus.BAD_REQUEST;
-
+        HttpStatus status = BAD_REQUEST;
         return ResponseEntity.status(status)
                 .body(Response.builder()
                         .timeStamp(now())
@@ -108,8 +102,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<Response> handleUserNotFoundException(ResourceNotFoundException ex) {
 
-        HttpStatus status = HttpStatus.NOT_FOUND;
-
+        HttpStatus status = NOT_FOUND;
         return ResponseEntity.status(status)
                 .body(Response.builder()
                         .timeStamp(now())
