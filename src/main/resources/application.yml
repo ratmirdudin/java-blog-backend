@@ -9,7 +9,6 @@ server:
 app:
   jwtSecret: secretKey
   jwtExpirationInMs: 604800000
-  baseUrl: http://localhost:8080
   cors:
     allowedOrigins: http://localhost:4200
 
